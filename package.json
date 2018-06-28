@@ -1,14 +1,25 @@
 {
 	"name": "delay",
-	"version": "3.0.0",
+	"version": "3.0.0b",
 	"description": "Delay a promise a specified amount of time",
 	"license": "MIT",
-	"repository": "sindresorhus/delay",
+	"repository": "deanolium/delay",
 	"author": {
 		"name": "Sindre Sorhus",
 		"email": "sindresorhus@gmail.com",
 		"url": "sindresorhus.com"
 	},
+	"contributors": [
+		{
+			"name": "Deano License",
+			"email": "d.license@dectech.co.uk"
+		},
+		{
+			"name": "Sindre Sorhus",
+			"email": "sindresorhus@gmail.com",
+			"url": "sindresorhus.com"
+		}
+	],
 	"engines": {
 		"node": ">=6"
 	},
