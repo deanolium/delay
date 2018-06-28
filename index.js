@@ -1,23 +1,25 @@
-'use strict';
+"use strict";
 
-const createDelay = willResolve => (ms, value) => {
-	let timeoutId;
-	let settle;
+const createDelay = function(willResolve) {
+	return function(ms, value) {
+		let timeoutId;
+		let settle;
 
-	const delayPromise = new Promise((resolve, reject) => {
-		settle = willResolve ? resolve : reject;
-		timeoutId = setTimeout(settle, ms, value);
-	});
+		const delayPromise = new Promise((resolve, reject) => {
+			settle = willResolve ? resolve : reject;
+			timeoutId = setTimeout(settle, ms, value);
+		});
 
-	delayPromise.clear = () => {
-		if (timeoutId) {
-			clearTimeout(timeoutId);
-			timeoutId = null;
-			settle(value);
-		}
+		delayPromise.clear = function() {
+			if (timeoutId) {
+				clearTimeout(timeoutId);
+				timeoutId = null;
+				settle(value);
+			}
+		};
+
+		return delayPromise;
 	};
-
-	return delayPromise;
 };
 
 module.exports = createDelay(true);
